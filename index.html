@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./assets/FavDoggo.png" />
+    <title>Pau</title>
+    <style>
+        body {
+            background: black;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: "Segoe UI", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        p {
+            line-height: 14px;
+            background: url('./assets/Pau.jpg') no-repeat center center;
+            background-attachment: fixed;
+            background-size: cover;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: rgba(255, 255, 255, 0.2);
+            font-size: 1rem;
+            text-align: justify;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                align-items: flex-start;
+            }
+
+            p {
+                font-size: 12px;
+                text-align: Justify;
+            }
+        }
+
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="text"></p>
+    <audio id="bg-music" autoplay loop>
+        <source src="./assets/Dilaw.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        let message = `
+        Happy Birthday Pau!
+        
+        From the very first day we met, I knew you were someone special. It all started in Mobile Legends Bang Bang, just a simple game, just a simple chat. But from that one message asking if we could play together whenever we were both available, everything changed.
+
+        Day by day, our conversations grew longer, from game strategies to random life stories. Each moment we spent chatting made me admire you more. You started sharing bits of your life, your small wins, your struggles, your joys, and I found myself drawn to you in ways I never expected. You became someone I looked forward to talking to, someone who made my days brighter with just a message.
+
+        As time passed, life got busier for both of us. You worked hard for your career, chasing your dreams, and I truly admire that about you. Seeing your dedication and passion for what you do only made me respect you even more. It’s inspiring to know someone as determined and hardworking as you.
+
+        So today, on your special day, I just want to say: Thank you. Thank you for coming into my life and giving me those unforgettable moments, those butterflies that made my heart race. Thank you for being you, kind, strong, and someone worth admiring.
+
+        I wish you all the happiness in the world, Pau. May your life be filled with endless blessings, good health, and all the success you dream of. No matter where life takes you, know that I’ll always be cheering you on from afar.
+
+        Happy Birthday, Pau!
+
+        Isaiah 60:22 "When the time is right, I, the Lord, will make it happen."
+        `;
+
+        message = message.replace(/-/g, "");
+
+        if (window.innerWidth > 768) {
+            document.getElementById("text").innerHTML = message.repeat(7);
+        } else {
+            document.getElementById("text").innerHTML = message.repeat(2);
+        }
+
+        document.body.addEventListener('click', function () {
+            document.getElementById("bg-music").play();
+        });
+    </script>
+</body>
+</html>
