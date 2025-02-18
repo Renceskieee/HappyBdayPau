@@ -49,12 +49,33 @@
 </head>
 <body>
     <p id="text"></p>
-    <audio id="bg-music" autoplay loop>
-        <source src="./assets/Dilaw.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bg-music" autoplay></audio>
+
+    <script>
+      const playlist = [
+        "./assets/Dilaw.mp3",
+        "./assets/Sining.mp3",
+        "./assets/Palagi.mp3"
+      ];
+    
+      let currentSongIndex = 0;
+      const audioPlayer = document.getElementById("bg-music");
+    
+      function playNextSong() {
+        currentSongIndex = (currentSongIndex + 1) % playlist.length;
+        audioPlayer.src = playlist[currentSongIndex];
+        audioPlayer.play().catch(error => console.log("Autoplay blocked, user interaction needed."));
+      }
+    
+      audioPlayer.src = playlist[currentSongIndex];
+      audioPlayer.play().catch(error => console.log("Autoplay blocked, user interaction needed."));
+    
+      audioPlayer.addEventListener("ended", playNextSong);
+    </script>
+    
     <script>
         let message = `
-        Happy Birthday Pau!
+        Happy Birthday Pau ♡♡♡
         
         From the very first day we met, I knew you were someone special. It all started in Mobile Legends Bang Bang, just a simple game, just a simple chat. But from that one message asking if we could play together whenever we were both available, everything changed.
 
@@ -66,7 +87,7 @@
 
         I wish you all the happiness in the world, Pau. May your life be filled with endless blessings, good health, and all the success you dream of. No matter where life takes you, know that I’ll always be cheering you on from afar.
 
-        Happy Birthday, Pau!
+        Happy Birthday, Pau ♡♡♡
 
         Isaiah 60:22 "When the time is right, I, the Lord, will make it happen."
         `;
